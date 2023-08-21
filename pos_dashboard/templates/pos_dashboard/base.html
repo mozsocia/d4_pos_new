@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <meta name="description" content="POS - Bootstrap Admin Template">
+  <meta name="keywords"
+    content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern,  html5, responsive">
+  <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Universe Pos admin template</title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.png'%}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css'%}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/animate.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/plugins/select2/css/select2.min.css'%}">
+
+  <!-- Include Select2 CSS -->
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" /> -->
+
+
+
+
+  <link rel="stylesheet" href="{% static 'assets/css/dataTables.bootstrap4.min.css'%}">
+
+  <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-5.15.4-web/css/fontawesome.min.css'%}">
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css"
+    integrity="sha512-RtgdY8FN0wFbR4ascGaGFDgjPJBzXP6WZZExVmmWJOaTCm4B0nF3e4G9iy9SfATuFQxyc+Mq7hXINynh3iwLDg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    integrity="sha512-0S+nbAYis87iX26mmj/+fWt1MmaKCv80H+Mbo+Ne7ES4I6rxswpfnC6PxmLiw33Ywj2ghbtTw0FkLbMWqh4F7Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+  <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css'%}">
+
+
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/new_css.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/x_css.css' %}">
+
+
+
+  <script src="{% static 'assets/js/jquery-3.6.0.min.js'%}"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+
+
+  {% block style %}
+
+  {% endblock style %}
+
+  {% block up_script %}
+
+  {% endblock up_script %}
+
+</head>
+
+<body>
+  <div class="main-wrapper">
+    {% include 'pos_dashboard/include/main_header.html' %}
+    {% include 'pos_dashboard/include/sidebar.html' %}
+
+
+    {% block body %}
+
+    {% endblock body %}
+  </div>
+
+  <!-- <script src="{% static 'assets/js/jquery-3.6.0.min.js'%}"></script> -->
+
+  <!-- Include jQuery -->
+
+
+
+
+  <!-- Include Alpine.js library -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- Include Select2 JS -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> -->
+
+  <script src="{% static 'assets/js/feather.min.js'%}"></script>
+
+  <script src="{% static 'assets/js/jquery.slimscroll.min.js'%}"></script>
+
+  <script src="{% static 'assets/js/jquery.dataTables.min.js'%}"></script>
+  <script src="{% static 'assets/js/dataTables.bootstrap4.min.js'%}"></script>
+
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js'%}"></script>
+
+  <script src="{% static 'assets/js/select2.min.js'%}"></script>
+
+
+  <script src="{% static 'assets/js/sweetalert2.all.min.js'%}"></script>
+  <script src="{% static 'assets/js/sweetalerts.min.js'%}"></script>
+
+  <script src="{% static 'assets/plugins/apexchart/apexcharts.min.js'%}"></script>
+  <script src="{% static 'assets/plugins/apexchart/chart-data.js'%}"></script>
+
+  <script src="{% static 'assets/js/script.js'%}"></script>
+
+
+  {% block script %}
+
+  {% endblock script %}
+
+</body>
+
+</html>

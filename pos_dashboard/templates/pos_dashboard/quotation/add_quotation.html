@@ -1,0 +1,402 @@
+{% extends 'pos_dashboard/base.html' %}
+{% block body %}
+
+
+<div class="main-wrapper">
+  <div class="page-wrapper">
+    <div class="content">
+      <div class="page-header">
+        <div class="page-title">
+          <h4>Quotation Add</h4>
+        </div>
+      </div>
+      <div x-data="initFormData()">
+        <form @submit="submitForm" id="jsonForm">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+
+               
+                <div class="col-lg-3 col-sm-6 col-12">
+                  <div class="form-group select-validation-error">
+                    <label>Customer Name</label>
+                    <div class="row">
+                      <div class="col-lg-10 col-sm-10 col-10">
+                        <select class="select" id="customer" name="customer" x-model="formData.customer">
+                          <option>Select Customer</option>
+                          <option>Customer</option>
+                        </select>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                
+
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                  <div class="form-group">
+                    <label for="date">Quotation Date:</label>
+                    <input type="date" id="date" name="date" x-model="formData.date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                  <div class="form-group">
+                    <label for="payment_status">Reference No.</label>
+                    <div class="input-groupicon">
+                      <input type="text" id="payment_status" name="payment_status" x-model="formData.payment_status"
+                        class="form-control">
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-lg-12 col-sm-6 col-12">
+                  <div class="form-group select-validation-error">
+                    <label>Products:</label>
+                    <select class="select" id="mySelect" name="mySelect" x-ref="selectField">
+                      <option value="">Select a product</option>
+                      <option value="11" data-name="one product" data-id="1" data-price="10" data-age="25">23948 | one
+                        product
+                      </option>
+                      <option value="22" data-name="two product" data-id="2" data-price="15" data-age="35">56123 | two
+                        product
+                      </option>
+                      <option value="33" data-name="three product" data-id="3" data-price="60" data-age="23">45648 |
+                        three
+                        product
+                      </option>
+                      <option value="44" data-name="four product" data-id="4" data-price="35" data-age="12">77123 | four
+                        product
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-12 mt-0 mb-3">
+                    <button type="button" @click="addProductToTable" class="btn btn-submit me-2">Add Product</button>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="table-responsive mt-3 mb-4">
+                    <table class="table" style="min-height: 100px;">
+                      <thead>
+                        <tr>
+                          <th class="text-center">Product Name</th>
+                          <th class="text-center"><label for="quantity">Quantity:</span></label></th>
+                          <th class="text-center">Subtotal</th>
+                          <th class="text-center">Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+
+
+                        <template x-for="(product, index) in saleOrderProducts" :key="index">
+                          <tr>
+
+                            <td class="col-lg-3 col-sm-6 col-md-4 ">
+                              <span x-text="product.name"></span>
+                            </td>
+
+                            <td class="col-lg-3 col-sm-6 col-md-4 "><input class="form-control" type="number"
+                                class="classToValidate" x-model="product.quantity"
+                                :name="'sale_order_product_quantity' + product.id"></td>
+
+                            <td class="col-lg-3 col-sm-6 col-md-4 "><input class="form-control" type="number"
+                                class="classToValidate" step="0.01" x-model="product.sub_total"
+                                :name="'sale_order_product_sub_total' + product.id"></td>
+
+
+                            <td class="d-flex justify-content-center pb-3 pt-3">
+                              <a href="javascript:void(0);" class="delete-set "><img
+                                  src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg"
+                                  alt="svg"></a>
+                            </td>
+
+                            <input type="hidden" x-model="product.product">
+
+                          </tr>
+
+                        </template>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label>Order Tax</label>
+                      <input type="text">
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label>Discount</label>
+                      <input type="text">
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label>Shipping</label>
+                      <input type="text">
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label>Status</label>
+                      <select class="select">
+                        <option>Choose Status</option>
+                        <option>Completed</option>
+                        <option>Inprogress</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="note">Note:</label>
+                      <div class="input-groupicon">
+                        <input type="text" step="0.01" id="note" name="note" x-model="formData.note" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                        <div class="total-order w-200 max-widthauto m-auto mb-4 border border-dark">
+                            <ul>
+                                <li class="border-bottom">
+                                    <h4>Order Tax</h4>
+                                    <h5>$ 0.00 (0.00%)</h5>
+                                </li>
+                                <li>
+                                    <h4>Discount</h4>
+                                    <h5>$ 0.00</h5>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div class="total-order w-100 max-widthauto m-auto mb-4 border border-dark">
+                            <ul>
+                                <li class="border-bottom">
+                                    <h4>Shipping</h4>
+                                    <h5>$ 0.00</h5>
+                                </li>
+                                <li class="total">
+                                    <h4>Grand Total</h4>
+                                    <h5>$ 0.00</h5>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-12">
+                    <button type="submit" class="btn btn-cancel">Submit</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+
+
+
+{% endblock body %}
+
+
+{% block script %}
+
+
+<script>
+
+
+  function initFormData() {
+    return {
+      formData: {
+        phone: null,
+        date: null,
+        status: null,
+        payment_status: null,
+        total_quantity: null,
+        total: null,
+        discount: null,
+        shipping_cost: null,
+        grand_total: null,
+        paid: null,
+        due: null,
+        note: null,
+        customer: null,
+      },
+      counter_saleOrderProducts: 0,
+      saleOrderProducts: [],
+
+
+
+
+
+      addProductField(params) {
+        this.counter_saleOrderProducts = this.counter_saleOrderProducts + 1;
+
+        this.saleOrderProducts.push({ quantity: null, product: params.id, sub_total: null, id: this.counter_saleOrderProducts, name: params.name });
+
+        // this.$nextTick(function () {
+        //   $(".select").select2();
+        // });
+
+      },
+
+      addProductToTable() {
+        const selectField = document.getElementById('mySelect');
+
+        const selectedOption = selectField.options[selectField.selectedIndex];
+        const selectedValue = selectedOption.value;
+
+        const name = selectedOption.dataset.name;
+        const id = selectedOption.dataset.id;
+        const price = selectedOption.dataset.price;
+        const age = selectedOption.dataset.age;
+
+        if (selectedValue) {
+          console.log(name, price, age, id)
+          // Re-select the "choice a Option" value
+          this.addProductField({ name, price, age, id })
+          $('#mySelect').val("").trigger('change');
+        } else {
+          alert('Please select a product')
+        }
+
+      },
+
+
+
+
+      addValidation(val) {
+
+        $("#jsonForm .classToValidate").each(function () {
+          $(this).rules('add', {
+            required: true
+          });
+        });
+      },
+
+      submitForm(e) {
+        e.preventDefault();
+        const $form = $('#jsonForm');
+        // if ($form.valid()) {
+        const formData = { ...this.formData };
+        formData.sale_order_product = this.saleOrderProducts;
+        console.log(JSON.stringify(formData));
+
+        // axios.post('http://127.0.0.1:8000/api/sales/create/', formData, {
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        // })
+        //   .then((response) => {
+        //     console.log('Successfully submitted:', response.data);
+        //   })
+        //   .catch((error) => {
+        //     console.error('Error submitting form:', error);
+        //   });
+
+
+        // }
+      },
+
+
+
+    };
+  }
+
+
+
+
+
+
+</script>
+
+
+<script>
+  // Initialize jQuery Validation Plugin after the document is ready
+  $(document).ready(function () {
+    $('#jsonForm').validate({
+      rules: {
+        phone: {
+          required: true,
+          // Add any specific phone validation rules here, e.g., minlength, maxlength, regex, etc.
+        },
+        date: {
+          required: true,
+          // Add any specific date validation rules here, e.g., date format, etc.
+        },
+        status: {
+          required: true,
+          // Add any specific validation rules for the status field here.
+        },
+        payment_status: {
+          required: true,
+          // Add any specific validation rules for the payment_status field here.
+        },
+        total_quantity: {
+          required: true,
+          // Add any specific validation rules for the total_quantity field here.
+        },
+        total: {
+          required: true,
+          // Add any specific validation rules for the total field here.
+        },
+        discount: {
+          required: true,
+          // Add any specific validation rules for the discount field here.
+        },
+        shipping_cost: {
+          required: true,
+          // Add any specific validation rules for the shipping_cost field here.
+        },
+        grand_total: {
+          required: true,
+          // Add any specific validation rules for the grand_total field here.
+        },
+        paid: {
+          required: true,
+          // Add any specific validation rules for the paid field here.
+        },
+        due: {
+          required: true,
+          // Add any specific validation rules for the due field here.
+        },
+        note: {
+          required: true,
+          // Add any specific validation rules for the note field here.
+        },
+        customer: {
+          required: true,
+          // Add any specific validation rules for the customer field here.
+        },
+
+      },
+
+    });
+
+  });
+</script>
+
+
+
+
+{% endblock script %}

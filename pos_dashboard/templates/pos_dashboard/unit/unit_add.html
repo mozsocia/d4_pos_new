@@ -1,0 +1,65 @@
+{% extends 'pos_dashboard/base.html' %}
+{% block body %}
+
+<div class="page-wrapper">
+  <div class="content">
+
+    <div class="page-header">
+      <div class="page-title">
+        <h4>Unit Management</h4>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <form action="{% url 'unit_add' %}" method="POST">
+          <div class="row">
+            {% csrf_token %}
+            <div class="col-lg-3 col-sm-6 col-12">
+              <div class="form-group">
+                <label>Unit Name</label>
+                <input type="text" id="id_unit_name" name="name" class="form-control" placeholder="Unit price">
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-12 mt-4">
+              <button type="submit" class="btn btn-submit me-2">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <hr>
+      <div class="table-responsive">
+        <table class="table  datanew">
+          <thead>
+            <tr>
+              <th>Unit Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for x in unit_list %}
+            <tr>
+
+              <td>{{ x.name }}</td>
+
+              <td>
+                <a class="me-3" href="https://dreamspos.dreamguystech.com/html/template/editpurchase.html">
+                  <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/edit.svg" alt="img">
+                </a>
+                <a class="me-3 confirm-text" href="javascript:void(0);">
+                  <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg" alt="img">
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock body %}

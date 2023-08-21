@@ -1,0 +1,57 @@
+{% extends 'pos_dashboard/base.html' %}
+{% block body %}
+
+<div class="page-wrapper">
+  <div class="content">
+    <form action="{% url 'category_add' %}" method="POST" enctype="multipart/form-data">
+      <div class="page-header">
+        <div class="page-title">
+          <h4>User Management</h4>
+          <h6>Add/Update User</h6>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            {% csrf_token %}
+
+            <div class="col-lg-3 col-sm-6 col-12">
+              <div class="form-group">
+                <label>Category Name</label>
+                <input id="id_category_name" type="text" name="category_name" class="form-control"
+                  placeholder="Due price">
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-12">
+              <div class="form-group">
+                <label>Parent Name</label>
+                <select class="select" name="parent">
+                  <option value="" selected="">Select parent--</option>
+                  {% for x in categorys %}
+                  <option>{{ x.parent }}</option>
+                  {% endfor %}
+                </select>
+
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-12">
+              <div class="form-group">
+                <label>Image</label>
+                {{ form.image }}
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <button type="submit" class="btn btn-submit me-2">Submit</button>
+              <a href="#" class="btn btn-cancel">Cancel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock body %}

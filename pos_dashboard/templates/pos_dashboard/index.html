@@ -1,0 +1,372 @@
+{% extends 'pos_dashboard/base.html' %}
+{% load static %}
+{% block body %}
+
+<!-- <div id="global-loader">
+<div class="whirly-loader"> </div>
+</div> -->
+
+<div class="main-wrapper">
+
+  <div class="page-wrapper">
+    <div class="content">
+      <div class="row">
+
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Today sale</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das1">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>This Month sale</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user-check"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das2">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Last Month sale </h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file-text"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das3">
+            <div class="dash-counts">
+              <h4>105</h4>
+              <h5> This Year sale</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Today Profit</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das1">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>This Month Profit</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user-check"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das2">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Last Month Profit</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file-text"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das3">
+            <div class="dash-counts">
+              <h4>105</h4>
+              <h5>This Year Profit</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Today Purchase</h5>
+              <h5>Cash Purchase</h5>
+              <h4>5</h4>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das1">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>This Month Purchase</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user-check"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das2">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Last Month Purchase</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file-text"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das3">
+            <div class="dash-counts">
+              <h4>105</h4>
+              <h5>This Year Purchase</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Today Expense</h5>
+              <h5>Salary</h5>
+              <h4>5</h4>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das1">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>This Month Expense</h5>
+              <h5>Salary</h5>
+              <h4>5</h4>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user-check"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das2">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Last Month Expense</h5>
+              <h5>Salary</h5>
+              <h4>5</h4>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file-text"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das3">
+            <div class="dash-counts">
+              <h4>105</h4>
+              <h5>This Year Expense</h5>
+              <h5>Salary</h5>
+              <h4>5</h4>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Today Extra Income</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das1">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>This Month Extra Income</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user-check"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das2">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>Last Month Extra Income</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file-text"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das3">
+            <div class="dash-counts">
+              <h4>105</h4>
+              <h5>This Year Extra Income</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count">
+            <div class="dash-counts">
+              <h4>Today,s Payment</h4>
+              <h5>In / Receive 0</h5>
+              <h5>Out / Paid 0</h5>
+
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das1">
+            <div class="dash-counts">
+              <h4>Today Cash Purchase 0</h4>
+              <h5>Payment Out 0</h5>
+              <h5>Today Expense 0</h5>
+              <h5>Today Cash Out 0</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user-check"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das2">
+            <div class="dash-counts">
+              <h4>100</h4>
+              <h5>I Will Receive</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file-text"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das3">
+            <div class="dash-counts">
+              <h4>105</h4>
+              <h5>I Will Pay</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count">
+            <div class="dash-counts">
+              <h4>Today Cash Sale 0</h4>
+              <h5>Payment In 0</h5>
+              <h5>Founder Payment 0</h5>
+              <h5>Today Cash In 0</h5>
+
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das1">
+            <div class="dash-counts">
+              <h4>Today Cash In 0</h4>
+              <h4>Today Cash Out 0</h4>
+              <h4>Today Blanace 0</h4>
+
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="user-check"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das2">
+            <div class="dash-counts">
+              <h4>Totale Payment In/ Receive</h4>
+              <h5>2000</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file-text"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-12 d-flex">
+          <div class="dash-count das3">
+            <div class="dash-counts">
+              <h4>Totale Payment Out/ Paid</h4>
+              <h5>480000</h5>
+            </div>
+            <div class="dash-imgs">
+              <i data-feather="file"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-6 col-12 d-flex">
+          <div class="dash-count das3">
+            <div class="dash-counts">
+              <h4>Previous Cash</h4>
+              <div><span>
+                  <h4>555</h4>
+                </span></div>
+              <h4>Today Balance</h4>
+              <div><span>
+                  <h4>555</h4>
+                </span></div>
+              <h4>Cash In Hand</h4>
+              <div><span>
+                  <h4>555</h4>
+                </span></div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock body %}
