@@ -75,13 +75,13 @@ def user_update(request,pk):
 
 @login_required
 # @daseboard_required
-# def user_delete(request, pk):
-#     user = User.objects.get(pk=pk)
-#     if request.method == 'POST':
-#         user.delete()
-#         messages.success(request, 'Successfully delete')
-#         return redirect('user_list')
-#     return render (request, 'dashboard/user/user-delete.html',{'user':user})
+def user_delete(request, pk):
+    user = User.objects.get(pk=pk)
+    if request.method == 'POST':
+        user.delete()
+        messages.success(request, 'Successfully delete')
+        return redirect('user_list')
+    return render (request, 'dashboard/user/user-delete.html',{'user':user})
 
 
 # Product
